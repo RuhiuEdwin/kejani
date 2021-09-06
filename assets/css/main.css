@@ -1,0 +1,373 @@
+/*
+    code and design by edwin ruhiu
+    kejani realort=s mock up site
+    version 1.0
+*/
+@import url(/assets/css/global.css);
+/* hero section*/
+.hero{
+    background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.1)),
+     url(/assets/images/22.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+}
+.hero-img{
+    display: none;
+}
+.text{
+    position: relative;
+    z-index: 1;
+}
+.text::after{
+    display: none;
+    content: "";
+    width: 100px;
+    height: 100px;
+    background-color:var(--orange);
+    position: absolute;
+    bottom: -100%;
+    right: -15%;
+    opacity: 90%;
+}
+.text::before{
+    display: none;
+    content: "";
+    width: 100px;
+    height: 100px;
+    background-color:var(--black);
+    position: absolute;
+    top: -20%;
+    left: -10%;
+    opacity: 90%;
+    z-index: -1;
+}
+.text h1{
+    color: var(--orange);
+    font-size:3rem;
+    margin-bottom: 2%;
+}
+.text p{
+    color: var(--white);
+    font-size: 1rem;
+    margin-bottom: 2%;
+}
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding:0 2px;
+}
+.btn{
+    color: var(--white);
+    padding: 1rem 2rem;
+    border: 1px solid var(--orange);
+    font-size: 1rem;
+}
+.btn:hover{
+    color: var(--white);
+    background: var(--orange);
+}
+/* hero responsive*/
+@media screen and (min-width: 1000px) {
+    .navbar_logo,
+    .navbar_link{
+        color: var(--black);
+    }
+    .hero{
+        background: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .hero-img{
+        display: block;
+        width: 50vw;
+    }
+    .hero-img img{
+        width: 100%;
+        height: 120vh;
+    }
+    .text{
+        top: 10%;
+    }
+    .text::after, 
+    .text::before{
+        display: block;
+        width: 200px;
+        height: 200px;
+    }
+    .text::after{
+        bottom: 0%;
+        right: 0%;
+        opacity: 90%;
+        background-color:var(--black);
+        z-index: -1;
+
+    }
+    .text::before{
+        background-color:var(--orange);
+        position: absolute;
+        top: -50%;
+        left: 0%;
+        opacity: 90%;
+        z-index: -1;
+    }
+    .text h1,.text p{
+        color: var(--black);
+    }
+    .buttons{
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        margin: 5rem;
+        margin-top: 100px;
+    }
+    .btn{
+        color: var(--orange);
+        padding: .5rem 2rem;
+        border: 1px solid var(--orange);
+    }
+}
+
+/* about us*/
+.about{
+    height: 100%;
+    position: relative;
+}
+.about-img{
+    display: none;
+}
+.about-desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+.about-txt{
+    font-size: clamp(.8rem, 3vw, 1.2rem);
+    font-weight: lighter;
+    line-height: 1.5;
+}
+.signature{
+    margin-left: 70%;
+    text-align: center;
+}
+.name{
+    font-size: clamp(.6rem, 3vw, 1rem);
+    font-family: '';
+}
+.sign{
+    font-size: clamp(.6rem, 3vw, 1rem);
+    font-family: 'Quentin';
+}
+.role{
+    font-size: clamp(.6rem, 3vw, 1rem);
+}
+
+/*about us responsive*/
+
+@media screen and (min-width: 1000px) {
+    .about{
+        display: grid;
+        grid-template-columns: 1fr 2fr .5fr;
+        height: 100%;
+        margin-top: 100px;
+    }
+    .about-img{
+        display: block;
+        width: 30vw;
+        margin-top: 150px;
+        margin-left: 50px;
+    }
+    .about-img img{
+        width: 100%;
+    }
+    .signature{
+        margin-top: 330%;
+        margin-left: 0%;
+    }
+    .about-txt{
+        padding: .3rem;
+    }
+}
+
+/*CTA*/
+.cta{
+    background: var(--orange);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5% 3% ;
+    position: relative;
+    z-index: 0;
+}
+.cta h1,.cta p, .cta a{
+    color: var(--white);
+    margin-bottom: 2rem;
+    z-index: 2;
+}
+.cta a{
+    font-size: clamp(1rem, 3vw, 2rem);
+    font-weight: bold;
+}
+.btn1{
+    padding: 1rem 2rem;
+    background: black;
+}
+/* cta responsive*/
+
+/*meet the team*/
+.team{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.team-cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+}
+.team-card{
+    padding: 2rem 0;
+    width: 40vw;
+    height: 100%;
+    border: 1px solid var(--orange);
+    border-radius: 10px;
+}
+.team-img{
+    width: 35vw;
+    height: 35vw;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+}
+.team-name{
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    font-weight: normal;
+    margin-bottom: 2rem;
+}
+.roles{
+    font-size: clamp(.5rem, 3vw, 1rem);
+    font-weight: normal;
+    margin-bottom: 2rem;
+}
+/* meet the team responsive*/
+@media screen and (min-width: 800px) {
+    .team-cards{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 1rem;
+    }
+    .team-card{
+        width: 20vw;
+        height: 100%;
+    }
+    .team-img{
+        width: 15vw;
+        height: 15vw;
+        border-radius: 50%;
+        margin-bottom: 2rem;
+    }
+}
+
+/* talk to us*/
+.contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+}
+.contact-img{
+    display: none;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 2rem;
+}
+.contact-input{
+    padding: 1rem 2rem;
+    width: 80vw;
+    margin-bottom: 1rem;
+    border: 3px solid var(--black);
+    border-radius: 5px;
+    background: none;
+}
+.contact-input::placeholder{
+    color: var(--black);
+}
+.submit{
+    padding: .5rem 1rem;
+    width: 50vw;
+    background: none;
+    cursor: pointer;
+}
+.submit:hover{
+    background: var(--orange);
+    color: var(--white);
+    border: solid var(--orange);
+}
+/* talk to us responsive*/
+@media screen and (min-width: 800px) {
+    .contact-page{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+    .contact-img{
+        display: block;
+        width: 40vw;
+        margin-top: 150px;
+    }
+    .one, .two{
+        width: 30vw;
+    }
+    .one{
+        margin-top: -150px;
+        margin-right: -50%;
+    }
+    .two{
+        margin-top: -250px;
+    }
+    form{
+        margin-left: 50px;
+    }
+    .contact-input{
+        width:30vw;
+        margin: 10px 0;
+    }
+    .submit{
+        padding: .5rem 1rem;
+        width: 10vw;
+        margin-top: 10px;
+    }
+    .team-img{
+        width: 15vw;
+        height: 15vw;
+        border-radius: 50%;
+        margin-bottom: 2rem;
+    }
+}
+
+
+

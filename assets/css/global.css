@@ -1,0 +1,202 @@
+/*
+    code and design by edwin ruhiu
+    kejani realort=s mock up site
+    version 1.0
+*/
+body{
+    overflow-x: hidden;
+}
+:root{
+    --orange:#FD8802;
+    --black: #000;
+    --white: #fff;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+.heading{
+    margin: 2rem 0;
+    font-size: clamp(2rem, 3vw, 4rem);
+    position: relative;
+    z-index: 1;
+    font-weight: bold;
+}
+.heading::before{
+    content: "";
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--orange);
+    position: absolute;
+    top: -40px;
+    left: -50px;
+    z-index: -1;
+}
+/* Navigation*/
+.navbar{
+    background: none;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding-right: 50px;
+}
+.navbar_logo{
+    color: var(--orange);
+    text-decoration: none;
+    padding-left: 50px;
+    font-size: 1.5rem;
+}
+.active{
+    color: var(--orange);
+}
+.navbar_link{
+    color: var(--black);
+    text-decoration: none;
+    padding: 0rem 1rem;
+}
+.navbar_link:hover{
+    color: var(--orange);
+}
+/* Navigation responsive*/
+@media screen and (max-width: 768px) {
+    body.active{
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+    .navbar_link{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .navbar_menu{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5,100px);
+        position: absolute;
+        width: 100%;
+        top: -1000px;
+    }
+    .navbar_menu.active{
+        top: 100%;
+        opacity: 1;
+        z-index: 99;
+        height: 100vh;
+        font-size: 1.5rem;
+        background: var(--orange);
+    }
+    .navbar_toggle .bar {
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background: var(--orange);
+        display: block;
+        cursor: pointer;
+    }
+    #mobile-menu{
+        position: absolute;
+        top: 15%;
+        right: 5%;
+        transform: translate(5%, 20%);
+    }
+    #mobile-menu.is-active .bar:nth-child(2){
+        opacity: 0;
+    }
+    #mobile-menu.is-active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+    #mobile-menu.is-active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .navbar_link:hover{
+        color: var(--black);
+    }
+}
+
+
+
+
+/*footer*/
+.footer{
+    background: var(--orange);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+}
+.details p,
+.links p,
+.socialmedia p{
+    color: var(--white);
+    margin-bottom: .5rem;
+}
+.details h2,
+.links h2,
+.socialmedia h2,
+.newsletter h2{
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+}
+.newsletter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+::placeholder{
+    color: var(--white);
+}
+.email,
+.submit1{
+    border: 2px solid var(--white);
+    background: var(--orange);
+    color: var(--white);
+    padding: .5rem 1rem;
+    margin-top: 1rem;
+}
+.email{
+    width: 80vw;
+    text-align: center;
+}
+.submit1{
+    width: 30vw;
+    cursor: pointer;
+}
+.submit1:hover{
+    background: var(--white);
+    color: var(--orange);
+}
+
+/* footer responsive*/
+@media screen and (min-width: 800px) {
+    .footer{
+        z-index: 0;
+    }
+    .footer-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        z-index: 1;
+    }
+    .email{
+        width: 300px;
+    }
+    .submit1{
+        width: 100px;
+        cursor: pointer;
+    }
+}
+
+

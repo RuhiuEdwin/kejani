@@ -1,0 +1,229 @@
+/*
+    code and design by edwin ruhiu
+    kejani realort=s mock up site
+    version 1.0
+*/
+@import url(./global.css);
+/* hero section*/
+.hero{
+    background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.1)),
+     url(/assets/images/22.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+}
+.hero-img{
+    display: none;
+}
+.text{
+    position: relative;
+    z-index: 1;
+}
+.text::after{
+    display: none;
+    content: "";
+    width: 100px;
+    height: 100px;
+    background-color:var(--orange);
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+    opacity: 90%;
+}
+.text::before{
+    display: none;
+    content: "";
+    width: 100px;
+    height: 100px;
+    background-color:var(--black);
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    opacity: 90%;
+    z-index: -1;
+}
+.text h1{
+    color: var(--orange);
+    font-size:3rem;
+    margin-bottom: 2%;
+}
+.text p{
+    color: var(--white);
+    font-size: 1rem;
+    margin-bottom: 2%;
+}
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    margin: 5%;
+    text-align: center;
+}
+.btn{
+    color: var(--white);
+    padding: 1rem 2rem;
+    border: 1px solid var(--orange);
+    font-size: 1rem;
+}
+.btn:hover{
+    color: var(--white);
+    background: var(--orange);
+}
+/* hero responsive*/
+@media screen and (min-width: 1000px) {
+    .navbar_logo,
+    .navbar_link{
+        color: var(--black);
+    }
+    .hero{
+        background: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .hero-img{
+        display: block;
+        width: 50vw;
+    }
+    .hero-img img{
+        width: 100%;
+        height: 120vh;
+    }
+    .text{
+        top: 10%;
+    }
+    .text::after, 
+    .text::before{
+        display: block;
+        width: 200px;
+        height: 200px;
+    }
+    .text::after{
+        bottom: -70%;
+        right: 0%;
+        opacity: 90%;
+        background-color:var(--black);
+        z-index: -1;
+
+    }
+    .text::before{
+        background-color:var(--orange);
+        position: absolute;
+        top: -30%;
+        left: 0%;
+        opacity: 90%;
+        z-index: -1;
+    }
+    .text h1,.text p{
+        color: var(--black);
+    }
+    .buttons{
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        margin: 5rem;
+        margin-top: 100px;
+    }
+    .btn{
+        color: var(--orange);
+        padding: .5rem 2rem;
+        border: 1px solid var(--orange);
+        margin: 1rem;
+    }
+}
+
+/* talk to us*/
+.contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+}
+
+.contact-img{
+    display: none;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.contact-input{
+    padding: 1rem 2rem;
+    width: 80vw;
+    margin-bottom: 1rem;
+    color: var(--black);
+    border: 3px solid var(--black);
+    border-radius: 5px;
+    background: none;
+}
+.contact-input::placeholder{
+    color: var(--black);
+}
+.submit{
+    padding: .5rem 1rem;
+    width: 50vw;
+    background: none;
+    cursor: pointer;
+}
+.submit:hover{
+    background: var(--orange);
+    color: var(--white);
+    border: solid var(--orange);
+}
+/* talk to us responsive*/
+@media screen and (min-width: 800px) {
+    .contact::before,.contact::after{
+        width: 200px;
+        height: 200px;
+    }
+    .contact{
+        margin-top: 200px;
+    }
+    .contact-page{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+    .contact-img{
+        display: block;
+        width: 40vw;
+        margin-top: 150px;
+    }
+    .one, .two{
+        width: 30vw;
+    }
+    .one{
+        margin-top: -150px;
+        margin-right: -50%;
+    }
+    .two{
+        margin-top: -250px;
+    }
+    form{
+        margin-left: 50px;
+    }
+    .contact-input{
+        width:30vw;
+        margin: 10px 0;
+    }
+    .submit{
+        padding: .5rem 1rem;
+        width: 10vw;
+        margin-top: 10px;
+    }
+    .team-img{
+        width: 15vw;
+        height: 15vw;
+        border-radius: 50%;
+        margin-bottom: 2rem;
+    }
+}
